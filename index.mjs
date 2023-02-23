@@ -98,10 +98,9 @@ const response = await inquirer
     
     ${response.question}
     ${response.gitHubUsername}`
-    
+
 // function to write README file
-function writeToFile(fileName, data) {
-}
+await fs.writeFile("README.md", data)
 
 // function to initialize program
 function init() {
