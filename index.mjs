@@ -59,6 +59,46 @@ const response = await inquirer
        
     ]);
 
+    console.log(response);
+    let data = 
+    `# ${response.title}
+    
+    ## Description 
+    
+    ${response.description}
+    
+    
+    ## Table of Contents
+    
+    ${response.tableOfContents}
+    
+    
+    ## Installation
+    
+    ${response.installation}
+    
+    
+    ## Usage
+    
+    ${response.usage}
+    
+    ## License
+    
+    ${generateLicense()}
+    
+    ## Badges
+    
+    ${response.badges}
+    
+    ## Tests
+    
+    ${response.tests}
+    
+    ## Questions
+    
+    ${response.question}
+    ${response.gitHubUsername}`
+    
 // function to write README file
 function writeToFile(fileName, data) {
 }
