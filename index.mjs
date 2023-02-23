@@ -102,6 +102,17 @@ const response = await inquirer
 // function to write README file
 await fs.writeFile("README.md", data)
 
+//function to generate license badge
+function generateLicense() {
+    if(response.license === "MIT"){
+    return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+    }else if(response.license === "Mozilla Public License 2.0"){
+    return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"
+    }else if (response.license === "Open Database License (ODbL)") {
+    return "[![License: ODbL](https://img.shields.io/badge/License-ODbL-brightgreen.svg)](https://opendatacommons.org/licenses/odbl/)"
+    }
+}
+
 // function to initialize program
 function init() {
 
