@@ -1,5 +1,4 @@
 import fs from "fs";
-import path from "path";
 import inquirer from "inquirer";
 
 // array of questions for user
@@ -67,11 +66,7 @@ const response = await inquirer
     
     ${response.description}
     
-    
-    ## Table of Contents
-    
-    ${response.tableOfContents}
-    
+    ${generateTableOfContents()}
     
     ## Installation
     
@@ -113,10 +108,11 @@ function generateLicense() {
     }
 }
 
-// function to initialize program
-function init() {
+// // function to initialize program
+// function init() {
 
-}
+// }
 
-// function call to initialize program
-init();
+// // function call to initialize program
+// init();
+
