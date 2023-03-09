@@ -1,8 +1,8 @@
-import fs from "fs";
+import fs from "fs/promises";
 import inquirer from "inquirer";
 
 // array of questions for user
-const response = await inquirer 
+let response = await inquirer 
     .prompt([
         {
             name: 'title',
@@ -59,6 +59,7 @@ const response = await inquirer
     ]);
 
     console.log(response);
+    
     let data = 
     `# ${response.title}
     
@@ -66,7 +67,6 @@ const response = await inquirer
     
     ${response.description}
     
-    ${generateTableOfContents()}
     
     ## Installation
     
@@ -107,12 +107,4 @@ function generateLicense() {
     return "[![License: ODbL](https://img.shields.io/badge/License-ODbL-brightgreen.svg)](https://opendatacommons.org/licenses/odbl/)"
     }
 }
-
-// // function to initialize program
-// function init() {
-
-// }
-
-// // function call to initialize program
-// init();
 
