@@ -1,9 +1,8 @@
-import fs from "fs";
-import path from "path";
+import fs from "fs/promises";
 import inquirer from "inquirer";
 
 // array of questions for user
-const response = await inquirer 
+let response = await inquirer 
     .prompt([
         {
             name: 'title',
@@ -60,17 +59,13 @@ const response = await inquirer
     ]);
 
     console.log(response);
+    
     let data = 
     `# ${response.title}
     
     ## Description 
     
     ${response.description}
-    
-    
-    ## Table of Contents
-    
-    ${response.tableOfContents}
     
     
     ## Installation
@@ -113,10 +108,3 @@ function generateLicense() {
     }
 }
 
-// function to initialize program
-function init() {
-
-}
-
-// function call to initialize program
-init();
