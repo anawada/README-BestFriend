@@ -15,11 +15,6 @@ let response = await inquirer
             type: 'input',
         },
         {
-            name: 'tableOfContents',
-            message: "Use if your README is very long to make it easy for users to find what they need. Would you like to include a Table of Content?",
-            type: 'confirm',
-        },
-        {
             name: 'installation',
             message: "What are the steps required to install your project?",
             type: 'input',
@@ -66,7 +61,13 @@ let response = await inquirer
     ## Description 
     
     ${response.description}
-    
+
+    ## Table Of Content 
+
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [Credits](#credits)
+    * [License](#license)
     
     ## Installation
     
@@ -92,7 +93,7 @@ let response = await inquirer
     ## Questions
     
     ${response.question}
-    ${response.gitHubUsername}`
+    https://github.com/${response.gitHubUsername}`
 
 // function to write README file
 await fs.writeFile("README.md", data)
@@ -108,3 +109,16 @@ function generateLicense() {
     }
 }
 
+//function to generate Table of Content
+function generateTableOfContents() {
+    if(response.tableOfContents) {
+        return `
+    ## Table Of Content 
+
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [Credits](#credits)
+    * [License](#license)
+`
+    }
+    }
