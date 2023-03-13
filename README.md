@@ -1,33 +1,15 @@
-# gsajdgashjd
-    
-    ## Description 
-    
-    asdkjhsjadhksad
+# Professional README Generator
 
-    undefined
-    
-    ## Installation
-    
-    jhsajkdhaskdhkjas
-    
-    
-    ## Usage
-    
-    jhsgdjhsgdjksagjd
-    
-    ## License
-    
-    [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
-    
-    ## Badges
-    
-    undefined
-    
-    ## Tests
-    
-    
-    
-    ## Questions
-    
-    
-    
+## Description
+
+This application dynamically generates a professional README.md file by using a command-line. This allows the project creator to devote more time to working on the project. Using Node and Inquirer package, the user can easily create a README with all important information, by just following a series of prompts that automatically generate the README. 
+
+## Usage 
+
+The application will be invoked by using the following command:
+
+```bash
+node index.js
+```
+
+

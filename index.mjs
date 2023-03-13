@@ -21,7 +21,7 @@ let response = await inquirer
         },
         {
             name: 'usage',
-            message: "Provide instructions and examples for use. Include screenshots as needed.",
+            message: "Provide instructions and examples for use.",
             type: 'input',
         },
         {
@@ -41,13 +41,13 @@ let response = await inquirer
             type: 'input',
         },
         {
-            name: 'question',
-            message: "Do you have any question?",
+            name: 'gitHubUsername',
+            message: "Please, enter your GitHub Username to make a question.",
             type: 'input',
         },
         {
-            name: 'gitHubUsername',
-            message: "If you have any questions please include your GitHub Username then we can contact you.",
+            name: 'question',
+            message: "Now, what is your question?",
             type: 'input',
         },
        
@@ -80,11 +80,7 @@ let response = await inquirer
     
     ## License
     
-    ${generateLicense()}
-    
-    ## Badges
-    
-    ${response.badges}
+    ${generateLicense(response)}
     
     ## Tests
     
@@ -92,14 +88,15 @@ let response = await inquirer
     
     ## Questions
     
+    https://github.com/${response.gitHubUsername}
     ${response.question}
-    https://github.com/${response.gitHubUsername}`
+    `
 
 // function to write README file
-await fs.writeFile("README.md", data)
+await fs.writeFile("README1.md", data)
 
 //function to generate license badge
-function generateLicense() {
+function generateLicense(response) {
     if(response.license === "MIT"){
     return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
     }else if(response.license === "Mozilla Public License 2.0"){
@@ -108,17 +105,3 @@ function generateLicense() {
     return "[![License: ODbL](https://img.shields.io/badge/License-ODbL-brightgreen.svg)](https://opendatacommons.org/licenses/odbl/)"
     }
 }
-
-//function to generate Table of Content
-function generateTableOfContents() {
-    if(response.tableOfContents) {
-        return `
-    ## Table Of Content 
-
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [Credits](#credits)
-    * [License](#license)
-`
-    }
-    }
